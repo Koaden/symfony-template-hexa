@@ -1,0 +1,43 @@
+---
+parameters:
+  paths:
+    - ./src
+  layers:
+    - name: Application
+      collectors:
+        - type: classLike
+          value: ^Application\\.*
+    - name: Domain
+      collectors:
+        - type: classLike
+          value: ^Domain\\.*
+    - name: Infrastructure
+      collectors:
+        - type: classLike
+          value: ^Infrastructure\\.*
+    - name: Framework
+      collectors:
+        - type: classLike
+          value: ^Symfony\\.*
+    - name: Others
+      collectors:
+      - type: classLike
+        value: ^(Doctrine)\\.*
+    - name: Kernel
+      collectors:
+      - type: classLike
+        value: ^App\\Kernel.php
+    - name: App
+      collectors:
+      - type: classLike
+        value: ^App\\.*
+  ruleset:
+    Infrastructure:
+      - +Application
+      - Others
+    Application:
+      - Domain
+      - Framework
+    Domain: ~
+    App:
+      - +Infrastructure
