@@ -13,7 +13,7 @@ The docker setup provides a dev and a prod configuration.
 
 1. **Clone this repository**
     ```bash
-   git clone https://github.com/Koaden/symfony-template.git my-project
+   git clone https://github.com/Koaden/symfony-template-hexa.git my-project
 2. Remove `.git` folder
 3. Duplicate `.env.dist` and rename it `.env`
 4. Prepare your project for GitHub
