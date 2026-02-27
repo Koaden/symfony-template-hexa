@@ -5,7 +5,16 @@ services:
         autoconfigure: true
 
     Infrastructure\Doctrine\Repository\:
-      resource: '%kernel.project_dir%/src/Infrastructure/Doctrine/Repository/*'
+        resource: '%kernel.project_dir%/src/Infrastructure/Doctrine/Repository/*'
 
-#    Domain\Collection\ProductCollection:
-#     alias: Infrastructure\Doctrine\Repository\ProductRepository
+    Domain\Collection\Users:
+        alias: Infrastructure\Doctrine\Repository\UserRepository
+    
+    Domain\Collection\Products:
+        alias: Infrastructure\Doctrine\Repository\ProductRepository
+
+    Domain\Collection\Orders:
+        alias: Infrastructure\Doctrine\Repository\OrderRepository
+
+    Domain\Collection\Categories:
+        alias: Infrastructure\Doctrine\Repository\CategoryRepository

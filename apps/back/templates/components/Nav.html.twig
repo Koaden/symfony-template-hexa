@@ -1,0 +1,18 @@
+{% set items = 
+    [
+        { label: 'Accueil', path: path('home') },
+        { label: 'Produits', path: path('crud.product.list') },
+        { label: 'A propos'|trans, path: '/about' },
+    ] 
+%}
+
+<nav
+  hx-boost="true"
+  hx-target="#main"
+>
+  <ul>
+    {% for item in items %}
+      <li><a href="{{ item.path }}">{{ item.label }}</a></li>
+    {% endfor %}
+  </ul>
+</nav>

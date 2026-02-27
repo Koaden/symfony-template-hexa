@@ -57,3 +57,10 @@ migrations: ## Execute migrations
 
 fixtures: ## Load fixtures
 	docker compose --env-file .env -f docker/compose.$(STAGE).yml run --rm --no-deps php php bin/console doctrine:fixtures:load
+
+##@ Assets (Tailwind)
+tailwind-watch: ## Watch and compile Tailwind CSS in real time
+	docker compose --env-file .env -f docker/compose.$(STAGE).yml run --rm --no-deps php php bin/console tailwind:build --watch
+
+tailwind-build: ## Build Tailwind CSS for production (minified)
+	docker compose --env-file .env -f docker/compose.$(STAGE).yml run --rm --no-deps php php bin/console tailwind:build
