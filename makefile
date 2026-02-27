@@ -48,6 +48,10 @@ composer-install: ## Install composer dependencies
 composer-update: ## Update composer dependencies
 	docker compose --env-file .env -f docker/compose.$(STAGE).yml run --rm --no-deps php composer update
 
+##@ Importmap
+importmap-install: ## Install importmap dependencies
+	docker compose --env-file .env -f docker/compose.$(STAGE).yml run --rm --no-deps php bin/console importmap:install
+
 ##@ Symfony
 create-database: ## Create database
 	docker compose --env-file .env -f docker/compose.$(STAGE).yml run --rm --no-deps php php bin/console doctrine:database:create
